@@ -328,6 +328,14 @@ you should place your code here."
     ;; If there is more than one, they won't work right.
     )
 
+  (when (>= emacs-major-version 24)
+    (require 'package)
+    (package-initialize)
+    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+    )
+
+  ;; install jedi for definition lookups
+
   (use-package flycheck
     :ensure t
     :config
