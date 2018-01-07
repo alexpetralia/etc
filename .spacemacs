@@ -334,6 +334,10 @@ you should place your code here."
     (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
     )
 
+  (with-eval-after-load 'python
+    (add-hook 'python-mode-hook (lambda () (setq python-shell-interpreter "python3"))))  
+  )
+
   ;; install jedi for definition lookups
 
   (use-package flycheck
