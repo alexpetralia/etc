@@ -4,6 +4,7 @@ c.InteractiveShellApp.exec_lines = [
     '%autoreload 2',
     'from __future__ import division',
     'from __future__ import print_function',
+    'import pandas as pd',
     'pd.set_option("display.float_format", lambda x: "%.3f" % x)',
     'pd.set_option("display.width", 120)',
     'pd.set_option("max_rows", 300)'
