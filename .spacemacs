@@ -328,18 +328,24 @@ you should place your code here."
     ;; If there is more than one, they won't work right.
     )
 
+  ;; Set package resource list to MELPA (emacs source)
   (when (>= emacs-major-version 24)
     (require 'package)
     (package-initialize)
     (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
     )
 
+  ;; Append to PATH
+  (setq exec-path (append exec-path (list (expand-file-name "~/.local/bin"))))
+
+  ;; Set default interpreter to Python3
   (with-eval-after-load 'python
     (add-hook 'python-mode-hook (lambda () (setq python-shell-interpreter "python3"))))  
   )
 
-  ;; install jedi for definition lookups
+  ;; `package-install` jedi for definition lookups
 
+  ;; Enable Flycheck linting manager; set .flake8rc as default config file
   (use-package flycheck
     :ensure t
     :config
@@ -349,8 +355,8 @@ you should place your code here."
 
     (setq flycheck-display-errors-delay 0.1)
     (add-hook 'after-init-hook #'global-flycheck-mode))
-  )
 
+  )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 
