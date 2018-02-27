@@ -356,6 +356,10 @@ you should place your code here."
     (setq flycheck-display-errors-delay 0.1)
     (add-hook 'after-init-hook #'global-flycheck-mode))
 
+  ;; Verify smartparens is off
+  (remove-hook 'prog-mode-hook #'smartparens-mode)
+  (spacemacs/toggle-smartparens-globally-off)
+
   )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
